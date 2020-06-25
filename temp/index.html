@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script>
+	$(document).ready(function () {
+			
+		var chart = new CanvasJS.Chart("GraphContainer", {
+			animationEnabled: true,
+			
+			title:{
+				text:"Copper price summary"
+			},
+			axisX:{
+				interval: 1
+			},
+			axisY2:{
+				interlacedColor: "rgba(1,77,101,.2)",
+				gridColor: "rgba(1,77,101,.1)",
+				title: "Percentage"
+			},
+			data: [{
+				type: "bar",
+				name: "prices",
+				axisYType: "secondary",
+				color: "#014D65",
+				dataPoints: [
+					{ y: 1, label: "$4950" },
+					{ y: 3, label: "$5000" },
+					{ y: 5, label: "$5050" },
+					{ y: 7, label: "$5100" },
+					{ y: 9, label: "$5150" },
+					{ y: 11, label: "$5200" },
+					{ y: 13, label: "$5250" },
+					{ y: 15, label: "$5300" },
+					{ y: 17, label: "$5350" },
+				]
+			}]
+		});
+		chart.render();
+	});
+</script>
+
+<script>
+	window.onload=function(){ with (new XMLHttpRequest()) {
+	  onreadystatechange=cb; open('GET','data.csv',true); responseType='text';send(); }}
+	function cb(){if(this.readyState===4)document.getElementById('main').innerHTML=tbl(this.responseText); }
+	function tbl(csv){ 
+		// do whatever is necessary to create your table here ...
+		var header = main.createTHead();
+		var row = header.insertRow(0);
+		var cell = row.insertCell(0);
+		cell.innerHTML = "<b>This is a table header</b>"; 
+		return csv.split('\n').map(function(tr,i){return '<tr><td>'+tr.replace(/\t/g,'</td><td>')+'</td></tr>';}).join('\n'); }
+</script>
+<link rel="stylesheet" href="css/CreateAccount.css">
+</head>
+<body>
+<h2>Ore price questionnaire</h2>
+<table id="head">
+  <thead>
+	 <thead>
+	  <tr>
+		<th>Participant</th>
+		<th>$4950</th>
+		<th>$5000</th>
+		<th>$5050</th>
+		<th>$5100</th>
+		<th>$5150</th>
+		<th>$5200</th>
+		<th>$5250</th>
+		<th>$5300</th>
+		<th>$5350</th>
+	  </tr>
+ </thead>
+<table id="main"></table>
+
+<form name="EstimateForm">	
+	<div class="itable-wrapper" id="table">
+		<table class="paleBlueRows">
+		 <thead>
+			 <tr>
+				<th></th>
+				<th>$4950</th>
+				<th>$5000</th>
+				<th>$5050</th>
+				<th>$5100</th>
+				<th>$5150</th>
+				<th>$5200</th>
+				<th>$5250</th>
+				<th>$5300</th>
+				<th>$5350</th>
+			 </tr>
+		  </thead>
+		  <tbody>
+			 <tr>
+				<td>Participant x</td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_1" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_2" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_3" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_4" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_5" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_6" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_7" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_8" required></div></td>
+				<td><div><input class="inputbox" type="text" placeholder="1" name="Guess_9" required></div></td>
+			 </tr>
+		  </tbody>
+		</table>
+	</div>
+</form>
+
+<div class="aParent">
+		<div class="Graph" id="GraphContainer" style="height: 380px; width: 48%;"></div>
+		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		
+		<div class="Feedback" id="Feedbacks" style="height: 380px; width: 48%;">
+		  <div><label for="Feedbacks"><b>Participants general remarks</b></label></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 1" name="P1" required></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 2" name="P2" required></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 3" name="P3" required></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 4" name="P4" required></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 5" name="P5" required></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 6" name="P6" required></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 7" name="P7" required></div><br><br>
+		  <div><input class="feedbackbox" type="text" placeholder="Prediction 8" name="P8" required></div><br><br>
+		  <div ><input class="feedbackbox" type="text" placeholder="Prediction 9" name="P9" required></div>
+		</div>
+	</div>	
+	<br>
+	<br>
+	<div align="right"><a href="Disclaimer.html" class="button">Submit</a></div>
+</body>
+</html>

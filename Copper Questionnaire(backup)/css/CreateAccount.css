@@ -1,0 +1,113 @@
+justify-content: input-fields;
+ 
+.textbox{
+	display:block;
+}
+
+.label{
+	display:block;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+
+.Feedback{
+	padding-top: 0px;
+	border-style: solid;
+	padding-top: 100px;
+}
+
+.feedbackbox{
+	width: 700px;
+}
+.inputbox{
+	width: 40px;
+}
+.input-fields{
+	justify-content: center;
+}
+
+.Graph{
+	padding-top: 0px;
+	border-style: solid;
+}
+
+.aParent div {
+	padding-top: 0px;
+   float: left;
+	clear: none;
+}
+input[type=text] {
+	padding: 0;
+   height: 25px;
+   position: relative;
+   left: 0;
+   outline: none;
+   border: 1px solid #cdcdcd;
+   border-color: rgba(0,0,0,.15);
+   background-color: white;
+   font-size: 16px;
+}
+
+.itable-wrapper{
+	padding-bottom: 40px;
+}
+
+/*table*/
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.blue{
+	border:2px solid #1ABC9C;
+}
+
+.blue thead{
+  background:#1ABC9C;
+}
+
+.purple{
+  border:2px solid #9B59B6;
+}
+
+.purple thead{
+  background:#9B59B6;
+}
+
+th,td{
+  text-align:center;
+  padding:5px 0;
+}
+
+tbody tr:nth-child(even){
+  background:#ECF0F1;
+}
+
+tbody tr:hover{
+background:#BDC3C7;
+  color:#FFFFFF;
+}
+
+.fixed{
+  top:0;
+  position:fixed;
+  width:auto;
+  display:none;
+  border:none;
+}
+
+.scrollMore{
+  margin-top:600px;
+}
+
+.up{
+  cursor:pointer;
+}
+/*table*/

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Title</title>
+</head>
+
+<body>
+	<script>src="jquery-3.5.0.min.js"</script>
+	<script>
+		function opsi(data){
+			var allRows = data.split(/\r?n|\r/);
+			var table = "<table>";
+			for (var SingleRow=0; SingleRow,allRows.length; SingleRow++){
+				if(SingleRow===0){
+					table +="<thead>";
+					table +="<tr>";
+				}else{
+					table +="<tr>";
+				}
+				var rowCells = allRows[SingleRow].split(",");
+				for (var rowSingleCell=0; rowSingleCell<rowCells.length; rowSingleCell++){
+					if(SingleRow===0){
+						table +="<th>";
+						table +=rowCells[rowSingleCell];
+						table +="</th>";
+					}else{
+						table +="<td>";
+						table +=rowCells[rowSingleCell];
+						table +="</td>";
+					}
+				}
+				if(SingleRow===0){ 
+					table +="</tr>";
+					table +="</thead>";
+					table +="<tbody>";
+				}else{
+					table +="</tr>";
+				}
+			}
+			table +="</tbody>";
+			table +="</table>";
+			$body.append(table);
+		}
+		$.ajax({
+			url: "data.csv",
+			dataType: "text"	
+		}).done(opsi);
+	</script>
+	<script></script>
+</body>
+</html>
